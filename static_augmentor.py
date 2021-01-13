@@ -3,7 +3,7 @@ import numpy as np
 import tensorflow as tf
 from time import time
 
-save_path = r''
+save_path = r'.'
 img_channel = 1
 augmentation_count = 1000
 
@@ -17,11 +17,11 @@ def augment():
     global save_path, augmentation_count, img_channel
     generator = tf.keras.preprocessing.image.ImageDataGenerator(
         rotation_range=5,
-        width_shift_range=0.12,
-        height_shift_range=0.12,
+        width_shift_range=0.1,
+        height_shift_range=0.1,
         brightness_range=(0.75, 1.25),
-        shear_range=0.1,
-        zoom_range=0.15)
+        shear_range=0.05,
+        zoom_range=0.1)
     image_paths = get_original_image_paths()
     save_count = 0
     while True:
