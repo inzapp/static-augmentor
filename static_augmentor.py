@@ -25,6 +25,7 @@ def augment(image_path):
     if image_count < target_num_images:
         while True:
             for path in image_paths:
+                path = path.replace('\\', '/')
                 img = cv2.imread(path, cv2.IMREAD_GRAYSCALE if img_channel == 1 else cv2.IMREAD_COLOR)
                 height, width = img.shape[0], img.shape[1]
                 x = np.asarray(img).reshape((1, height, width, img_channel))
