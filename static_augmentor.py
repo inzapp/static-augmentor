@@ -31,7 +31,7 @@ def augment(image_path):
                 x = np.asarray(img).reshape((1, height, width, img_channel))
                 x = generator.flow(x=x, batch_size=1)[0][0]
                 x = np.asarray(x).astype('uint8')
-                cv2.imwrite(rf'{image_path}\generated_{int(time() / 1e-5)}{image_count}.jpg', x)
+                cv2.imwrite(rf'{image_path}/generated_{int(time() / 1e-5)}{image_count}.jpg', x)
                 image_count += 1
                 print(f'image count : {image_count}')
                 if image_count == target_num_images:
