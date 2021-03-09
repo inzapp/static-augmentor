@@ -12,6 +12,7 @@ target_num_images = 4000
 
 def augment(image_path):
     global target_num_images, img_channel
+    image_path = image_path.replace('\\', '/')
     generator = tf.keras.preprocessing.image.ImageDataGenerator(
         rotation_range=5,
         width_shift_range=0.02,
